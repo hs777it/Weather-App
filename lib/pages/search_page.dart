@@ -8,7 +8,7 @@ import 'package:weather_app/services/weather_service.dart';
 class SearchPage extends StatelessWidget {
   SearchPage({Key? key, this.updateUi}) : super(key: key);
 
-  String? cityName;
+  String? city;
 
   VoidCallback? updateUi;
 
@@ -22,21 +22,21 @@ class SearchPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: TextField(
-            onChanged: (data) {
-              cityName = data;
+            onChanged: (data) { 
+              city = data;
             },
             onSubmitted: (data) async {
-              cityName = data;
+              city = data;
 
               WeatherService service = WeatherService();
 
               WeatherModel? weather =
-                  await service.getWeather(cityName: cityName!);
+                  await service.getWeather(cityName: city!); 
 
               Provider.of<WeatherProvider>(context, listen: false).weatherData =
                   weather;
               Provider.of<WeatherProvider>(context, listen: false).cityName =
-                  cityName;
+                  city;
 
               Navigator.pop(context);
             },
@@ -49,12 +49,12 @@ class SearchPage extends StatelessWidget {
                     WeatherService service = WeatherService();
 
                     WeatherModel? weather =
-                        await service.getWeather(cityName: cityName!);
+                        await service.getWeather(cityName: city!);
 
                     Provider.of<WeatherProvider>(context, listen: false)
                         .weatherData = weather;
                     Provider.of<WeatherProvider>(context, listen: false)
-                        .cityName = cityName;
+                        .cityName = city;
 
                     Navigator.pop(context);
                   },

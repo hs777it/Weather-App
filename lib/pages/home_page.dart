@@ -45,16 +45,12 @@ class _HomePageState extends State<HomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'There is no weather 😔 start',
-                    style: TextStyle(
-                      fontSize: 30,
-                    ),
+                    'There is no weather start',
+                    style: TextStyle(fontSize: 30),
                   ),
                   Text(
-                    'Searching Now 🔍',
-                    style: TextStyle(
-                      fontSize: 30,
-                    ),
+                    'Search Now',
+                    style: TextStyle(fontSize: 30),
                   )
                 ],
               ),
@@ -77,7 +73,9 @@ class _HomePageState extends State<HomePage> {
                     flex: 3,
                   ),
                   Text(
-                    Provider.of<WeatherProvider>(context).cityName!.toCapitalize(),
+                    Provider.of<WeatherProvider>(context)
+                        .cityName!
+                        .toCapitalize(),
                     style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
