@@ -40,10 +40,10 @@ class _HomePageState extends State<HomePage> {
       ),
       //body: Provider.of<WeatherProvider>(context).weatherData == null
       body: weatherData == null
-          ? Center(
+          ? const Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                children: const [
+                children: [
                   Text(
                     'There is no weather 😔 start',
                     style: TextStyle(
